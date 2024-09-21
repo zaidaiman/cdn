@@ -49,9 +49,10 @@ jobs:
           fi
 
           cd ~/cdn/CDNAPI
-          touch appSettings.json
-          echo ${APP_SETTINGS} >> appSettings.json
+          touch appsettings.json
+          echo ${APP_SETTINGS} >> appsettings.json
           cd ..
 
           docker-compose build
           docker-compose up -d
+          docker image prune -af

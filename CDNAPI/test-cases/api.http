@@ -19,3 +19,8 @@ Content-Type: application/json
 GET {{hostAddress}}/v1/user/search?sort=createdAt&sort=username
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InphaWRhaW1hbiIsIm5iZiI6MTcyNjg5NDMyMiwiZXhwIjoxNzI2ODk3OTIyLCJpYXQiOjE3MjY4OTQzMjIsImlzcyI6IkNvbXBsZXRlIERldmVsb3BlciBOZXR3b3JrIiwiYXVkIjoiQ29tcGxldGUgRGV2ZWxvcGVyIE5ldHdvcmsgQVBJIn0.LWcpvpUu7AwmNrT9lp-GMiAbaZvQGlSslQwg4ISEflU
+
+
+###
+GET http://localhost:8080/v1/auth/token/zaidaiman
+Content-Type: application/json
