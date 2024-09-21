@@ -88,6 +88,7 @@ sudo dnf install -y docker
 sudo usermod -a -G docker ec2-user 
 sudo dnf install -y certbot python3-certbot-nginx
 sudo dnf install -y collectd amazon-cloudwatch-agent
+sudo dnf install -y git
 sudo service docker start
 sudo systemctl enable docker
 ## wizard config
