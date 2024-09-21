@@ -1,0 +1,23 @@
+services:
+  app:
+    build:
+      context: .
+      target: final
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_DB: freelancer
+      POSTGRES_USER: cdn-db-user
+      POSTGRES_PASSWORD: Testing@1234
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:

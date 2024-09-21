@@ -1,0 +1,33 @@
+# node packages
+node_modules/
+node_modules
+package-lock.json
+
+# serverless artifacts
+.serverless
+
+# shared modules
+shared
+
+# jest artifacts
+coverage
+apidoc
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary / cached
+.tmp
+.npm
+*.swp
+.idea
+.vscode
+.DS_Store
+tmp
+
+# build files
+.build/
+.build

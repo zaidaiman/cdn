@@ -1,0 +1,60 @@
+name: Deploy to Amazon EC2
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  AWS_REGION: ap-southeast-1
+  ECR_REPOSITORY: cdn-repo
+  IMAGE_TAG: ${{ github.sha }}
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+
+    - name: SSH into EC2 and deploy
+      uses: appleboy/ssh-action@master
+      env:
+        AWS_REGION: ${{ env.AWS_REGION }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        APP_SETTINGS: ${{ secrets.APP_SETTINGS }}
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        envs: APP_SETTINGS
+        script: |
+          mkdir -p ~/cdn
+          cd ~/cdn
+
+          if [ ! -d ".git" ]; then
+            git clone https://github.com/zaidaiman/cdn.git .
+          else
+            git pull
+          fi
+
+          cd CDNAPI
+          touch appSettings.json
+          echo ${APP_SETTINGS} >> appSettings.json
+          cd ..
+
+          docker-compose build
+          docker-compose up -d

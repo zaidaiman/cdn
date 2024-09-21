@@ -1,0 +1,221 @@
+@hostAddress = http://localhost:5007
+
+### 
+
+POST {{hostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+    "email": "john.doe1@example.com",
+    "username": "john_doe1",
+    "phoneNumber": "0123456781"
+}
+
+### 
+
+POST {{hostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+    "email": "jane.smith2@example.com",
+    "username": "jane_smith2",
+    "phoneNumber": "0123456782"
+}
+
+### 
+
+POST {{hostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+    "email": "michael.brown3@example.com",
+    "username": "michael_brown3",
+    "phoneNumber": "0123456783"
+}
+
+### 
+
+POST {{hostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+    "email": "emily.jones4@example.com",
+    "username": "emily_jones4",
+    "phoneNumber": "0123456784"
+}
+
+### 
+
+POST {{hostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+    "email": "david.wilson5@example.com",
+    "username": "david_wilson5",
+    "phoneNumber": "0123456785"
+}
+
+### 
+
+POST {{hostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+    "email": "sarah.moore6@example.com",
+    "username": "sarah_moore6",
+    "phoneNumber": "0123456786"
+}
+
+### 
+
+POST {{hostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+    "email": "chris.taylor7@example.com",
+    "username": "chris_taylor7",
+    "phoneNumber": "0123456787"
+}
+
+### 
+
+POST {{hostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+    "email": "laura.anderson8@example.com",
+    "username": "laura_anderson8",
+    "phoneNumber": "0123456788"
+}
+
+### 
+
+POST {{hostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+    "email": "james.thomas9@example.com",
+    "username": "james_thomas9",
+    "phoneNumber": "0123456789"
+}
+
+### 
+
+POST {{hostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+    "email": "linda.jackson10@example.com",
+    "username": "linda_jackson10",
+    "phoneNumber": "0123456790"
+}
+
+### 
+
+POST {{hostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+    "email": "robert.white11@example.com",
+    "username": "robert_white11",
+    "phoneNumber": "0123456791"
+}
+
+### 
+
+POST {{hostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+    "email": "patricia.harris12@example.com",
+    "username": "patricia_harris12",
+    "phoneNumber": "0123456792"
+}
+
+### 
+
+POST {{hostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+    "email": "charles.martin13@example.com",
+    "username": "charles_martin13",
+    "phoneNumber": "0123456793"
+}
+
+### 
+
+POST {{hostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+    "email": "barbara.lee14@example.com",
+    "username": "barbara_lee14",
+    "phoneNumber": "0123456794"
+}
+
+### 
+
+POST {{hostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+    "email": "daniel.walker15@example.com",
+    "username": "daniel_walker15",
+    "phoneNumber": "0123456795"
+}
+
+### 
+
+POST {{hostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+    "email": "nancy.hall16@example.com",
+    "username": "nancy_hall16",
+    "phoneNumber": "0123456796"
+}
+
+### 
+
+POST {{hostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+    "email": "matthew.allen17@example.com",
+    "username": "matthew_allen17",
+    "phoneNumber": "0123456797"
+}
+
+### 
+
+POST {{hostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+    "email": "betty.young18@example.com",
+    "username": "betty_young18",
+    "phoneNumber": "0123456798"
+}
+
+### 
+
+POST {{hostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+    "email": "anthony.king19@example.com",
+    "username": "anthony_king19",
+    "phoneNumber": "0123456799"
+}
+
+### 
+
+POST {{hostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+    "email": "lisa.wright20@example.com",
+    "username": "lisa_wright20",
+    "phoneNumber": "0123456800"
+}
