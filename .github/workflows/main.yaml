@@ -50,7 +50,7 @@ jobs:
 
           cd ~/cdn/CDNAPI
           touch appsettings.json
-          echo ${APP_SETTINGS} >> appsettings.json
+          echo ${APP_SETTINGS} > appsettings.json
           cd ..
 
           docker-compose build
