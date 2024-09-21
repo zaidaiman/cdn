@@ -48,7 +48,7 @@ jobs:
             cd ~/cdn; git pull;
           fi
 
-          cd CDNAPI
+          cd ~/cdn/CDNAPI
           touch appSettings.json
           echo ${APP_SETTINGS} >> appSettings.json
           cd ..
