@@ -65,6 +65,7 @@ jobs:
           echo ${APP_SETTINGS} > appsettings.json
           cd ..
 
+          docker-compose down
           docker-compose build
           docker-compose up -d
           docker image prune -af
