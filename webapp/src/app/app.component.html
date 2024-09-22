@@ -1,0 +1,140 @@
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    box-sizing: border-box;
+    height: 100vh;
+    overflow: auto;
+  }
+
+  .api-operations {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 100%;
+  }
+
+  .operation-container {
+    display: flex;
+    gap: 2rem;
+    flex: 1;
+  }
+
+  .operation {
+    flex: 1;
+  }
+
+  .result {
+    flex: 2;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: auto;
+    color: #000000; /* Black text for better readability */
+  }
+
+  /* .operation mat-form-field {
+    display: block;
+    margin-bottom: 1rem;
+  } */
+
+  .operation mat-card-title {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .operation mat-form-field {
+    margin: 0px 5px;
+    display: block;
+  }
+
+  .operation pre {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #000000; /* Black text for better readability */
+  }
+</style>
+
+<main>
+  <div class="api-operations">
+    <div class="operation-container">
+      <mat-card class="operation">
+        <mat-card-title>Get Token</mat-card-title>
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Username" [(ngModel)]="username" />
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="getToken()">Get Token</button>
+      </mat-card>
+      <div class="result">
+        <h5>Token Response:</h5>
+        <pre>{{ tokenResponse | json }}</pre>
+      </div>
+    </div>
+
+    <div class="operation-container">
+      <mat-card class="operation">
+        <mat-card-title>Get User</mat-card-title>
+        <mat-form-field>
+          <mat-label>User ID</mat-label>
+          <input matInput placeholder="User ID" [(ngModel)]="userId" />
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="getUser()">Get User</button>
+      </mat-card>
+      <div class="result">
+        <h5>User Response:</h5>
+        <pre>{{ userResponse | json }}</pre>
+      </div>
+    </div>
+
+    <div class="operation-container">
+      <mat-card class="operation">
+        <mat-card-title>Search Users</mat-card-title>
+        <mat-form-field>
+          <mat-label>Search Query</mat-label>
+          <input matInput placeholder="Search Query" [(ngModel)]="searchQuery" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Page</mat-label>
+          <input matInput type="number" placeholder="Page" [(ngModel)]="page" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Page Size</mat-label>
+          <input matInput type="number" placeholder="Page Size" [(ngModel)]="size" />
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="searchUsers()">Search</button>
+      </mat-card>
+      <div class="result">
+        <h5>Search Results:</h5>
+        <pre>{{ searchResponse | json }}</pre>
+      </div>
+    </div>
+
+    <div class="operation-container">
+      <mat-card class="operation">
+        <mat-card-title>Update User</mat-card-title>
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Username" [(ngModel)]="updateUserRequest.username" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>New Email</mat-label>
+          <input matInput placeholder="New Email" [(ngModel)]="updateUserRequest.email" />
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="updateUser()">Update</button>
+      </mat-card>
+      <div class="result">
+        <h5>Update Response:</h5>
+        <pre>{{ updateResponse | json }}</pre>
+      </div>
+    </div>
+  </div>
+</main>
+
+<router-outlet />

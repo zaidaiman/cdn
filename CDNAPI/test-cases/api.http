@@ -7,8 +7,7 @@ Content-Type: application/json
 {
     "email": "zaidaiman@gmail.com",
     "username": "zaidaiman",
-    "phoneNumber": "0123456789",
-    "skillsets": [""]
+    "phoneNumber": "0123456789"
 }
 
 ###
@@ -18,8 +17,25 @@ Content-Type: application/json
 
 ###
 
+PUT {{hostAddress}}/v1/user/zaidaiman
+Content-Type: application/json
+Authorization: Bearer 
+
+{
+    "email": "zaidaiman@gmail.com",
+    "skillsets": ["skill"]
+}
+
+###
+
+DELETE {{hostAddress}}/v1/user/zaidaiman
+Content-Type: application/json
+Authorization: Bearer 
+
+###
+
 GET {{hostAddress}}/v1/user/search?sort=createdAt&sort=username
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InphaWRhaW1hbiIsIm5iZiI6MTcyNjk0OTgzNSwiZXhwIjoxNzI2OTUzNDM1LCJpYXQiOjE3MjY5NDk4MzUsImlzcyI6IkNvbXBsZXRlIERldmVsb3BlciBOZXR3b3JrIiwiYXVkIjoiQ29tcGxldGUgRGV2ZWxvcGVyIE5ldHdvcmsgQVBJIn0.5I-TUIlCHzsiKMA3GrDyK-myFKdEvWOG8hTf_hA45K0
+Authorization: Bearer 
 
 ###

@@ -1,0 +1,14 @@
+:root {
+  --primary-color: #6a11cb; /* Soft Purple */
+  --secondary-color: #2575fc; /* Soft Blue */
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); /* Soft Purple to Blue gradient */
+  background-size: cover;
+  background-attachment: fixed;
+  color: #ffffff; /* White text for better readability */
+}

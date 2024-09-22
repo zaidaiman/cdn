@@ -1,12 +1,28 @@
 services:
-  app:
+  backendapp:
     build:
       context: .
+      dockerfile: Dockerfile
       target: final
+    volumes:
+      - ./logs:/app/logs
     ports:
-      - 8080:8080
+      - '8080:8080'
     depends_on:
       - db
+
+  webapp:
+    environment:
+      - PRODUCTION=true
+      - BASE_URL=http://3.1.251.146:8080
+    build:
+      context: .
+      dockerfile: Dockerfile.angular
+      args:
+        PRODUCTION: 'true'
+        BASE_URL: 'http://3.1.251.146:8080'
+    ports:
+      - '80:80'
 
   db:
     image: postgres:13
@@ -18,6 +34,7 @@ services:
     ports:
       - '5432:5432'
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql/data
+
 volumes:
-  postgres_data:
+  db-data:

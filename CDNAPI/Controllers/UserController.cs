@@ -37,11 +37,17 @@ public class UserController : ControllerBase
     }
 
     [HttpGet("search")]
-    public async Task<IActionResult> SearchUser([FromQuery] SearchUserRequest query)
+    public async Task<IActionResult> SearchUser([FromQuery] string? query = null, [FromQuery] int page = 1, [FromQuery] int size = 10, [FromQuery] List<string>? sort = null)
     {
         try
         {
-            var result = await _userService.SearchUserAsync(query);
+            var result = await _userService.SearchUserAsync(new SearchUserRequest
+            {
+                Search = query,
+                Page = page,
+                Size = size,
+                Sort = sort
+            });
             return Ok(result);
         }
         catch (Exception ex)
