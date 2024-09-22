@@ -1,4 +1,5 @@
 @hostAddress = http://localhost:5007
+### @hostAddress = http://3.1.251.146:8080
 
 POST {{hostAddress}}/v1/user/register
 Content-Type: application/json
@@ -6,7 +7,8 @@ Content-Type: application/json
 {
     "email": "zaidaiman@gmail.com",
     "username": "zaidaiman",
-    "phoneNumber": "0123456789"
+    "phoneNumber": "0123456789",
+    "skillsets": [""]
 }
 
 ###
@@ -18,9 +20,6 @@ Content-Type: application/json
 
 GET {{hostAddress}}/v1/user/search?sort=createdAt&sort=username
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InphaWRhaW1hbiIsIm5iZiI6MTcyNjg5NDMyMiwiZXhwIjoxNzI2ODk3OTIyLCJpYXQiOjE3MjY4OTQzMjIsImlzcyI6IkNvbXBsZXRlIERldmVsb3BlciBOZXR3b3JrIiwiYXVkIjoiQ29tcGxldGUgRGV2ZWxvcGVyIE5ldHdvcmsgQVBJIn0.LWcpvpUu7AwmNrT9lp-GMiAbaZvQGlSslQwg4ISEflU
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InphaWRhaW1hbiIsIm5iZiI6MTcyNjk0OTgzNSwiZXhwIjoxNzI2OTUzNDM1LCJpYXQiOjE3MjY5NDk4MzUsImlzcyI6IkNvbXBsZXRlIERldmVsb3BlciBOZXR3b3JrIiwiYXVkIjoiQ29tcGxldGUgRGV2ZWxvcGVyIE5ldHdvcmsgQVBJIn0.5I-TUIlCHzsiKMA3GrDyK-myFKdEvWOG8hTf_hA45K0
 
 ###
-GET http://localhost:8080/v1/auth/token/zaidaiman
-Content-Type: application/json

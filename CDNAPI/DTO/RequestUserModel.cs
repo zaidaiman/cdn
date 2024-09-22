@@ -1,11 +1,11 @@
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 public class RegisterUserRequest
 {
     [Required]
     public string? Username { get; set; }
 
-    [Required]
+    [Required, EmailAddress(ErrorMessage = "Invalid Email Address")]
     public string? Email { get; set; }
 
     [Required]
@@ -20,6 +20,7 @@ public class RegisterUserRequest
 
 public class UpdateUserRequest
 {
+    [EmailAddress(ErrorMessage = "Invalid Email Address")]
     public string? Email { get; set; }
     public string? PhoneNumber { get; set; }
 

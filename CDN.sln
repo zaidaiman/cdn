@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDNAPI", "CDNAPI\CDNAPI.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDNDomain", "CDNDomain\CDNDomain.csproj", "{7188336C-5A0E-466B-9FF5-E360E934D4FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDNAPITests", "CDNAPITests\CDNAPITests.csproj", "{90720E37-7295-4FB6-812F-C5132A11E002}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{7188336C-5A0E-466B-9FF5-E360E934D4FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7188336C-5A0E-466B-9FF5-E360E934D4FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7188336C-5A0E-466B-9FF5-E360E934D4FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90720E37-7295-4FB6-812F-C5132A11E002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90720E37-7295-4FB6-812F-C5132A11E002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90720E37-7295-4FB6-812F-C5132A11E002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90720E37-7295-4FB6-812F-C5132A11E002}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

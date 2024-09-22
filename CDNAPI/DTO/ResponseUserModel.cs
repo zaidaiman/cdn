@@ -1,4 +1,4 @@
-public class SearchUserResponse
+﻿public class SearchUserResponse
 {
     public IEnumerable<UserResponse>? Items { get; set; }
     public int Page { get; set; }

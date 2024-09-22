@@ -75,7 +75,7 @@ public class UserController : ControllerBase
         {
             Log.Information(_logger, GetType().Name, $"Updating user {username}");
             var result = await _userService.UpdateUserAsync(username, data, User?.Identity?.Name ?? "Anonymous");
-            return Ok(new { Message = "User updated successfully." });
+            return Ok(result);
         }
         catch (Exception ex)
         {
