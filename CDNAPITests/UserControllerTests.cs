@@ -68,7 +68,7 @@ public class UserControllerTests
     [Fact]
     public void UpdateUser_InvalidBody_ReturnsBadRequest()
     {
-        var data = new UpdateUserRequest { Email = "me@example.com" };
+        var data = new UpdateUserRequest { Email = "me" };
         var context = new ValidationContext(data);
         var results = new List<ValidationResult>();
         var valid = Validator.TryValidateObject(data, context, results, true);
