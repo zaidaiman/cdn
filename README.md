@@ -12,13 +12,10 @@ This project consists of multiple components to handle different aspects of the 
 
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
+- [Notes](#notes)
 - [Usage](#usage)
 - [Configuration](#configuration)
 - [Project Structure](#project-structure)
-- [Components](#components)
-  - [CDNAPI](#cdnapi)
-  - [CDNDomain](#cdndomain)
-  - [Terraform](#terraform)
 - [Testing](#testing)
 - [Deployment](#deployment)
 - [License](#license)
@@ -35,7 +32,7 @@ This project consists of multiple components to handle different aspects of the 
 1. Clone the repository:
    ```sh
    git clone git@github.com:zaidaiman/cdn.git
-   cd complete-developer-network
+   cd cdn
    ```
 
 2. Restore and build solution:
@@ -44,14 +41,35 @@ This project consists of multiple components to handle different aspects of the 
    dotnet build
    ```
 
+3. Build webapp:
+   ```sh
+   cd webapp
+   npm i
+   ```
+
+## Notes
+
+1. With the recent release of Apple Sequoia OS, Apple has changed how it handle certificates, which resulted failure when perform `dotnet dev-certs https --trust`. The team at Microsoft is working on it and scheduled to release by Oct 2024: https://github.com/dotnet/announcements/issues/324.
+
+2. I have made the changes so that https redirection only happens when it is not in development environment.
+
 ## Usage
-1.  Run the API:
+
+1.  Run the API in project root directory:
     ```sh
     dotnet run --project CDNAPI/CDNAPI.csproj
     ```
+
 2.  Navigate to http://localhost:5007/swagger/index.html to view the API documentation.
 
+3.  Run the webapp in webapp directory:
+    ```sh
+    npm start
+    # default url should be http://localhost:4200
+    ```
+
 ## Configuration
+
 1.  For development, create `appSettings.Development.json`
     ```json
     {
@@ -84,30 +102,17 @@ complete-developer-network/
 ├── CDNAPI/                # API project
 ├── CDNDomain/             # Domain library
 ├── terraform/             # Terraform scripts for deployment
+├── webapp/                # Simple web app demo
 ├── docker-compose.yml     # Docker compose file
 ├── Dockerfile             # Dockerfile for CDNAPI build
 ├── README.md              # Project documentation
 └── LICENSE                # License file
 ```
 
-## Components
-
-### CDNAPI
-- **Description**: Handles API requests and responses.
-- **Technologies**: .NET Core, Entity Framework Core, PostgreSQL, Swagger
-
-### CDNDomain
-- **Description**: A DLL library used by CDNAPI to manage domain definitions.
-- **Technologies**: .NET Core, Entity Framework Core, PostgreSQL
-
-### Terraform
-- **Description**: Manages EC2 deployment and infrastructure as code.
-- **Technologies**: Terraform, AWS
-
 ## Testing
 1.  Run the tests:
     ```sh
-    dotnet test
+    dotnet test --logger "console;verbosity=detailed"
     ```
 
 ## Deployment

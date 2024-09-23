@@ -18,13 +18,13 @@ public class UserController : ControllerBase
         _userService = userService;
     }
 
-    [HttpGet("{userId}")]
-    public async Task<IActionResult> GetUser(string userId)
+    [HttpGet("{username}")]
+    public async Task<IActionResult> GetUser(string username)
     {
         try
         {
-            Log.Information(_logger, GetType().Name, $"Getting user {userId}");
-            var user = await _userService.GetUserByIdAsync(userId);
+            Log.Information(_logger, GetType().Name, $"Getting user {username}");
+            var user = await _userService.GetUserAsync(username);
             if (user == null) return NotFound(new { Message = "User not found." });
 
             return Ok(user);

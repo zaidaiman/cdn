@@ -3,14 +3,30 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import { environment } from '../environments/environment'
 
+export interface RegisterUser {
+  username: string
+  email: string
+  phoneNumber: string
+  skillsets: string[]
+  hobby: string[]
+}
+
+export interface UpdateUser {
+  username: string
+  email: string
+  phoneNumber: string
+  skillsets: string[]
+  hobby: string[]
+}
+
 @Injectable({ providedIn: 'root' })
 export class ApiService {
   private baseUrl = environment.baseUrl
 
   constructor(private http: HttpClient) {}
 
-  getUser(userId: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/v1/user/${userId}`)
+  getUser(username: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/v1/user/${username}`)
   }
 
   searchUsers(query: string, page: number, pageSize: number): Observable<any> {
@@ -18,11 +34,15 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/v1/user/search`, { params })
   }
 
-  registerUser(user: { username: string; email: string }): Observable<any> {
-    return this.http.post(`${this.baseUrl}/v1/user/register`, user)
+  registerUser(data: RegisterUser): Observable<any> {
+    return this.http.post(`${this.baseUrl}/v1/user/register`, data)
   }
 
-  updateUser(username: string, email: string): Observable<any> {
-    return this.http.put(`${this.baseUrl}/v1/user/${username}`, { email })
+  updateUser(username: string, data: UpdateUser): Observable<any> {
+    return this.http.put(`${this.baseUrl}/v1/user/${username}`, data)
+  }
+
+  deleteUser(username: string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/v1/user/${username}`)
   }
 }

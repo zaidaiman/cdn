@@ -65,6 +65,58 @@
   <div class="api-operations">
     <div class="operation-container">
       <mat-card class="operation">
+        <mat-card-title>Register User</mat-card-title>
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Username" [(ngModel)]="newUserRequest.username" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" [(ngModel)]="newUserRequest.email" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Phone Number</mat-label>
+          <input matInput placeholder="Phone Number" [(ngModel)]="newUserRequest.phoneNumber" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Skillsets</mat-label>
+          <mat-chip-grid #chipRegisterSkillsets aria-label="Skillsets">
+            <mat-chip-row *ngFor="let skill of newUserRequest.skillsets" [removable]="true" (removed)="removeSkill(skill, 'register')">
+              {{ skill }}
+            </mat-chip-row>
+            <input
+              placeholder="New skill..."
+              [matChipInputFor]="chipRegisterSkillsets"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="addSkill($event, 'register')"
+            />
+          </mat-chip-grid>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Hobby</mat-label>
+          <mat-chip-grid #chipRegisterHobby aria-label="Hobby">
+            <mat-chip-row *ngFor="let hobby of newUserRequest.hobby" [removable]="true" (removed)="removeHobby(hobby, 'register')">
+              {{ hobby }}
+            </mat-chip-row>
+            <input
+              placeholder="New hobby..."
+              [matChipInputFor]="chipRegisterHobby"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="addHobby($event, 'register')"
+            />
+          </mat-chip-grid>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="registerUser()">Register</button>
+      </mat-card>
+      <div class="result">
+        <h5>Register Response:</h5>
+        <pre>{{ registerResponse | json }}</pre>
+      </div>
+    </div>
+
+    <div class="operation-container">
+      <mat-card class="operation">
         <mat-card-title>Get Token</mat-card-title>
         <mat-form-field>
           <mat-label>Username</mat-label>
@@ -75,21 +127,6 @@
       <div class="result">
         <h5>Token Response:</h5>
         <pre>{{ tokenResponse | json }}</pre>
-      </div>
-    </div>
-
-    <div class="operation-container">
-      <mat-card class="operation">
-        <mat-card-title>Get User</mat-card-title>
-        <mat-form-field>
-          <mat-label>User ID</mat-label>
-          <input matInput placeholder="User ID" [(ngModel)]="userId" />
-        </mat-form-field>
-        <button mat-raised-button color="primary" (click)="getUser()">Get User</button>
-      </mat-card>
-      <div class="result">
-        <h5>User Response:</h5>
-        <pre>{{ userResponse | json }}</pre>
       </div>
     </div>
 
@@ -118,20 +155,83 @@
 
     <div class="operation-container">
       <mat-card class="operation">
-        <mat-card-title>Update User</mat-card-title>
+        <mat-card-title>Get User</mat-card-title>
         <mat-form-field>
           <mat-label>Username</mat-label>
+          <input matInput placeholder="Username" [(ngModel)]="username" />
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="getUser()">Get User</button>
+      </mat-card>
+      <div class="result">
+        <h5>User Response:</h5>
+        <pre>{{ userResponse | json }}</pre>
+      </div>
+    </div>
+
+    <div class="operation-container">
+      <mat-card class="operation">
+        <mat-card-title>Update User</mat-card-title>
+        <mat-form-field>
+          <mat-label>Username to update</mat-label>
           <input matInput placeholder="Username" [(ngModel)]="updateUserRequest.username" />
         </mat-form-field>
         <mat-form-field>
-          <mat-label>New Email</mat-label>
-          <input matInput placeholder="New Email" [(ngModel)]="updateUserRequest.email" />
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" [(ngModel)]="updateUserRequest.email" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Phone Number</mat-label>
+          <input matInput placeholder="Phone Number" [(ngModel)]="updateUserRequest.phoneNumber" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Skillsets</mat-label>
+          <mat-chip-grid #chipUpdateSkillsets aria-label="Skillsets">
+            <mat-chip-row *ngFor="let skill of updateUserRequest.skillsets" [removable]="true" (removed)="removeSkill(skill, 'update')">
+              {{ skill }}
+            </mat-chip-row>
+            <input
+              placeholder="New skill..."
+              [matChipInputFor]="chipUpdateSkillsets"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="addSkill($event, 'update')"
+            />
+          </mat-chip-grid>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Hobby</mat-label>
+          <mat-chip-grid #chipUpdateHobby aria-label="Hobby">
+            <mat-chip-row *ngFor="let hobby of updateUserRequest.hobby" [removable]="true" (removed)="removeHobby(hobby, 'update')">
+              {{ hobby }}
+            </mat-chip-row>
+            <input
+              placeholder="New hobby..."
+              [matChipInputFor]="chipUpdateHobby"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="addHobby($event, 'update')"
+            />
+          </mat-chip-grid>
         </mat-form-field>
         <button mat-raised-button color="primary" (click)="updateUser()">Update</button>
       </mat-card>
       <div class="result">
         <h5>Update Response:</h5>
         <pre>{{ updateResponse | json }}</pre>
+      </div>
+    </div>
+
+    <div class="operation-container">
+      <mat-card class="operation">
+        <mat-card-title>Delete User</mat-card-title>
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Username" [(ngModel)]="username" />
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="deleteUser()">Delete User</button>
+      </mat-card>
+      <div class="result">
+        <h5>User Response:</h5>
+        <pre>{{ deleteResponse | json }}</pre>
       </div>
     </div>
   </div>

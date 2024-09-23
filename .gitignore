@@ -300,7 +300,8 @@ yarn-error.log
 .history/*
 
 # Miscellaneous
-/.angular/cache
+webapp/dist/
+webapp/.angular/
 .sass-cache/
 /connect.lock
 /coverage
@@ -328,7 +329,5 @@ temp/
 *.tmp
 *.temp
 
-package-lock.json
+webapp/package-lock.json
 
-webapp/dist/**
-.angular/**
