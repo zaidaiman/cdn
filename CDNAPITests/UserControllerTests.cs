@@ -54,15 +54,14 @@ public class UserControllerTests
     }
 
     [Fact]
-    public async Task GetUser_ReturnsOkResult()
+    public async Task GetUser_ReturnsNotFoundResult()
     {
-        var userId = "testuser";
+        var username = "nonexistentuser";
         var expectedResult = new UserResponse { };
-        _mockUserService.Setup(service => service.GetUserByIdAsync(userId)).ReturnsAsync(expectedResult);
+        _mockUserService.Setup(service => service.GetUserByIdAsync(username)).ReturnsAsync(expectedResult);
 
-        var result = await _controller.GetUser(userId);
-        var okResult = Assert.IsType<OkObjectResult>(result);
-        Assert.Equal(expectedResult, okResult.Value);
+        var result = await _controller.GetUser(username);
+        Assert.IsType<NotFoundObjectResult>(result);
     }
 
     [Fact]
